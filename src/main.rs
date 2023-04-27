@@ -37,6 +37,17 @@ fn main() {
     let none = plus_one(None);
 
     println!("{:?} {:?} {:?}", five, six, none);
+
+    // Concise control flow with `if let`
+    // Reference: https://doc.rust-lang.org/book/ch06-03-if-let.html
+    let coin = Coin::Penny;
+    let mut count = 0;
+    if let Coin::Quarter(state) = coin {
+        println!("State quarter from: {:?}", state);
+    } else {
+        count += 1;
+    }
+    println!("Count = {}", count);
 }
 
 fn value_in_cents(coin: Coin) -> u8 {
